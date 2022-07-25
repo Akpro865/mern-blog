@@ -1,5 +1,6 @@
 import { getUser } from '../features/authSlice'
 import { useSelector } from 'react-redux'
+import { url } from '../network'
 
 function Profile() {
   const user = useSelector(getUser)
@@ -7,7 +8,7 @@ function Profile() {
 
   const handleUpdate = async(id)=>{
     try{
-      const res = await axios.put(`http://localhost:5000/api/auth/${id}`)
+      const res = await url.put(`/auth/${id}`)
     }catch(err){
       console.log(err)
     }

@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react'
 import { addAuth } from '../../features/authSlice'
 import { fetchCategory } from '../../features/categorySlice'
 import { useDispatch } from 'react-redux'
+import { url } from '../../network'
 
 function Blog({blog}) {
   const [title, setTitle] = useState(blog.title)
@@ -26,7 +27,7 @@ function Blog({blog}) {
   // }, [])
   const handleDelete = async(id)=>{
     try{
-      const res = await axios.delete(`http://localhost:5000/api/blogs/${id}`,{
+      const res = await url.delete(`/blogs/${id}`,{
           headers: {
             Authorization: `Bearer ${user.accessToken}`
           },
@@ -43,7 +44,7 @@ function Blog({blog}) {
   const handleEdit = async(id)=>{
     const username = user.username
     try{
-      const res = await axios.put(`http://localhost:5000/api/blogs/${id}`, {
+      const res = await url.put(`/blogs/${id}`, {
         username, title, desc
       })
       setUpdateMode(false)   
@@ -102,7 +103,7 @@ function Blog({blog}) {
 export default Blog
 
 export const getServerSideProps = async ({params})=>{
-  const res = await axios.get(`http://localhost:5000/api/blogs/find/${params.id}`)
+  const res = await url.get(`/blogs/find/${params.id}`)
 
   return {
     props: {

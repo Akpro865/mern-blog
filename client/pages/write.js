@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { getUser } from '../features/authSlice'
 import { useSelector } from 'react-redux'
+import { url } from '../network'
 
 function Write() {
   const [desc, setDesc] = useState("")
@@ -30,7 +31,7 @@ function Write() {
         photo: url
       }
       console.log(newBlog)
-      await axios.post('http://localhost:5000/api/blogs', newBlog)
+      await url.post('/blogs', newBlog)
       router.push('/')
     }catch(err){
       console.log(err)

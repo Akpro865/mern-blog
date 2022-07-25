@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { fetchCategory } from '../features/categorySlice'
 import { useLocation } from 'react-router'
 import { useRouter } from 'next/router'
-
+import { url } from '../network'
 
 function Home({blogs}) {
   //const [blogs, setBlogs] = useState([])
@@ -41,7 +41,7 @@ function Home({blogs}) {
 export default Home
 
 export const getStaticProps = async (context)=>{
-  const res = await axios.get(`http://localhost:5000/api/blogs`)
+  const res = await url.get(`/blogs`)
   console.log(context)
 
   return {

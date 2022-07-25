@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import { login } from '../features/authSlice'
 import { useDispatch } from 'react-redux'
+import { url } from '../network'
 
 function Login() {
   const [details, setDetails] = useState({

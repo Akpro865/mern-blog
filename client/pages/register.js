@@ -3,6 +3,7 @@ import styles from '../styles/auth.module.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import { url } from '../network'
 
 function Register() {
   const [details, setDetails] = useState({
@@ -23,7 +24,7 @@ function Register() {
   const handleSubmit = ()=>{
     try{
       const register = async()=>{
-        const res = await axios.post('http://localhost:5000/api/auth/register', details)
+        const res = await url.post('/auth/register', details)
         router.push('/login')
       }
       register()      
