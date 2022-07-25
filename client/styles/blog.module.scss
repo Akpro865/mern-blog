@@ -1,0 +1,15 @@
+.container {
+	flex: 9;
+}
+
+.paras > p {
+	&:first-child::first-letter {
+		font-size: 36px;
+		color: blue;
+		font-weight: bold;
+		line-height: 1.2;
+	};
+
+	line-height: 1.8;
+
+}

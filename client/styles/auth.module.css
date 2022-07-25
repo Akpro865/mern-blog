@@ -1,0 +1,17 @@
+.login {
+	background-image: url("/reg.jpg");
+	background-color: skyblue;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: calc(100vh - 72px);
+}
+
+.register {
+	background-image: url("/register.jpg");
+	background-color: skyblue;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: calc(100vh - 72px);
+}

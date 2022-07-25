@@ -1,0 +1,20 @@
+.profile{
+	.options {
+		display	: none;
+		border-radius: 8px;
+		margin: 4px;
+		position: relative;
+		}
+
+	span {
+		cursor: pointer;
+	}
+	&:hover {
+		.options {
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			top: 44px;			
+		}
+	}
+}
