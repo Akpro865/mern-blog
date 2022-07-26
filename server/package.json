@@ -12,7 +12,8 @@
     "nodemon": "^2.0.19"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "name": "server",
   "version": "1.0.0",
