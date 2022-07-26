@@ -9,8 +9,8 @@ import { useLocation } from 'react-router'
 import { useRouter } from 'next/router'
 import { url } from '../network'
 
-function Home({blogs}) {
-  //const [blogs, setBlogs] = useState([])
+function Home() {
+  const [blogs, setBlogs] = useState([])
   
   const router = useRouter()  
 
@@ -19,11 +19,11 @@ function Home({blogs}) {
   // }
   useEffect(()=>{
     
-    // const getBlogs = async()=>{
-    //   const res = await axios.get(`http://localhost:5000/api/blogs`)
-    //   setBlogs(res.data)
-    // }    
-    // getBlogs()  
+    const getBlogs = async()=>{
+      const res = await url.get(`/blogs`)
+      setBlogs(res.data)
+    }    
+    getBlogs()  
     //dispatch(fetchCategory())
   }, [])
   console.log(blogs)
@@ -40,13 +40,3 @@ function Home({blogs}) {
 
 export default Home
 
-export const getStaticProps = async (context)=>{
-  const res = await url.get(`/blogs`)
-  console.log(context)
-
-  return {
-    props: {
-      blogs: res.data
-    }
-  }
-}
