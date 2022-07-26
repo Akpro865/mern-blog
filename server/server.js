@@ -17,6 +17,12 @@ app.use('/api/users', require('./routes/users'))
 app.use('/api/blogs', require('./routes/blogs'))
 app.use('/api/categories', require('./routes/categories'))
 
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
 app.listen(process.env.PORT, () =>{
 	console.log("app connected")
 })
