@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { url } from '../network'
 
 //const user = JSON.parse(localStorage.getItem('user'))
 // if (typeof window !== "undefined") {
@@ -12,7 +13,7 @@ const initialState = {
 
 export const login = createAsyncThunk('auth/login', async(details)=>{
   try{
-		const res = await axios.post('http://localhost:5000/api/auth/login', details)
+		const res = await url.post('/auth/login', details)
 
 		if(res){
 			localStorage.setItem('user', JSON.stringify(res.data))

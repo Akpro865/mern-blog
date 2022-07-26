@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { url } from '../network'
 
 const initialState = {
 	categories: []
@@ -7,7 +8,7 @@ const initialState = {
 
 export const fetchCategory = createAsyncThunk('categories/fetchCategory', async()=>{
   try{
-		const res = await axios.get('http://localhost:5000/api/categories')
+		const res = await url.get('/categories')
 		return res.data
 	} catch(err) {
 		console.log(err)
