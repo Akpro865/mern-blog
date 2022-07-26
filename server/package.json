@@ -15,6 +15,9 @@
     "start": "nodemon server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "name": "server",
   "version": "1.0.0",
   "main": "server.js",
